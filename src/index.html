@@ -24,12 +24,14 @@
 
 
         .hero {
+            position: relative;
             max-width: 800px;
             margin: 150px; /* Centered and positioned below the header */
             text-align: center; /* Center align text */
             background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            padding: 40px; /* Padding for spacing */
+            padding: 10px; /* Padding for spacing */
             border-radius: 10px; /* Rounded corners */
+            padding: 2em 2em 30em 2em; /* Adjust the padding using em units */
         }
 
         .hero h2 {
@@ -41,10 +43,6 @@
         }
 
 
-        .hero p {
-            font-size: calc(.25rem + 1vw);
-            color: antiquewhite;
-        }
 
 
         body, html {
@@ -108,6 +106,53 @@
             background: linear-gradient(to right, #333, #333); /* Darker background on hover */
         }
 
+        .carousel {
+            position: relative;
+            height: auto;
+            margin-top: 1em; /* Add margin using em units */
+        }
+
+
+        .carousel p {
+            font-size: calc(0.75rem + 0.5vw); /* Adjust size as needed, combination of rem and vw */
+            color: antiquewhite;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            opacity: 0;
+            transition: left 0.5s, opacity 0.5s;
+            width: 100%;
+        }
+
+        .carousel .active-slide {
+            left: 0; /* Active slide positioned to the left, inside the view */
+            opacity: 1;
+        }
+
+        .carousel-controls {
+            position: absolute; /* Absolute positioning within the hero container */
+            bottom: 10px; /* 10 pixels above the bottom */
+            left: 0; /* Align to the left */
+            right: 0; /* Align to the right */
+            display: flex;
+            justify-content: center;
+        }
+
+        .carousel-controls button {
+            background-color: #333;
+            color: #0f0;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0.5em 1em;
+            margin: 0 5px;
+        }
+
+        .carousel-controls button:hover {
+            background-color: #222;
+        }
+
+
 
 
     </style>
@@ -119,8 +164,20 @@
 </header>
 <div class="hero">
     <h2>Welcome to CodeQuest</h2>
-    <p>Get ready to join our brave explorer, Indiana Codes, on a mission to save civilization by building amazing
-        websites.</p>
+    <div class="carousel">
+        <p>Get ready to join our brave explorer, Indiana Codes, on a mission to save civilization by building amazing websites.</p>
+        <p>At CodeQuest, we believe that coding is not just a skill, but a superpower that empowers young minds to create, innovate, and shape the future. Our unique approach combines the excitement of adventure with the practicality of coding, making learning an exhilarating and immersive experience.</p>
+        <p>Imagine yourself as a fearless explorer, delving into the depths of the coding jungle, deciphering mysterious puzzles, and unlocking the secrets of web development. With our expert guides and state-of-the-art curriculum, you will learn to build captivating websites that will leave a lasting impact on the digital landscape.</p>
+        <p>But that's not all! Along your coding journey, you will encounter a vibrant community of fellow adventurers, mentors, and industry professionals who share your passion for technology. Together, you'll collaborate, problem-solve, and inspire each other to reach new heights.</p>
+        <p>So, whether you're a beginner or already have some coding experience, CodeQuest is the perfect place for you to embark on your coding adventure. Unleash your creativity, ignite your curiosity, and equip yourself with the skills needed to shape the future of the digital world.</p>
+        <p>Join us at CodeQuest, where the thrill of adventure meets the power of coding. Together, let's build a brighter future!</p>
+        <!-- Add more paragraphs as needed -->
+    </div>
+    <div class="carousel-controls">
+        <button id="prev-button">&lt;</button>
+        <button id="pause-button">Pause</button>
+        <button id="next-button">&gt;</button>
+    </div>
 </div>
 <div id="ready-button">
     <a href="destination.html" class="ready-button">Ready Player One</a>
@@ -129,6 +186,39 @@
     setTimeout(function () {
         document.getElementById('ready-button').style.display = 'block';
     }, 3000);
+
+    let carouselIndex = 0;
+    const carouselSlides = document.querySelectorAll('.carousel p');
+    carouselSlides[carouselIndex].classList.add('active-slide');
+
+    let intervalId = setInterval(slideCarousel, 3000); // Store the interval ID
+
+    function slideCarousel() {
+        carouselSlides[carouselIndex].classList.remove('active-slide');
+        carouselIndex = (carouselIndex + 1) % carouselSlides.length;
+        carouselSlides[carouselIndex].classList.add('active-slide');
+    }
+
+    document.getElementById('pause-button').addEventListener('click', function() {
+        if (this.textContent === 'Pause') {
+            clearInterval(intervalId); // Pause the carousel
+            this.textContent = 'Play';
+        } else {
+            intervalId = setInterval(slideCarousel, 3000); // Resume the carousel
+            this.textContent = 'Pause';
+        }
+    });
+
+    document.getElementById('prev-button').addEventListener('click', function() {
+        carouselSlides[carouselIndex].classList.remove('active-slide');
+        carouselIndex = (carouselIndex - 1 + carouselSlides.length) % carouselSlides.length;
+        carouselSlides[carouselIndex].classList.add('active-slide');
+    });
+
+    document.getElementById('next-button').addEventListener('click', function() {
+        slideCarousel(); // Use the existing slideCarousel function for the next slide
+    });
+
 
 </script>
 </body>
