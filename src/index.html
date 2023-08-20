@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Press+Start+2P&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <title>ODELL CODE SCHOOL</title>
+    <style>
+        body {
+            background: url('image/background.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            font-family: 'Roboto Mono', monospace;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        .hero {
+            max-width: 800px;
+            margin: 150px; /* Centered and positioned below the header */
+            text-align: center; /* Center align text */
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 40px; /* Padding for spacing */
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        .hero h2 {
+            font-family: 'Pirata One', cursive;
+            font-size: calc(3.5rem + 1vw);
+            color: #0f0; /* Green text for the terminal look */
+            text-align: left; /* Left aligned */
+            margin-left: 20px; /* Margin to add some space from the left edge */
+        }
+
+
+        .hero p {
+            font-size: calc(.25rem + 1vw);
+            color:antiquewhite;
+        }
+
+
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100%; /* Full width */
+
+            background-color: #000; /* Black background for the terminal look */
+            color: #0f0; /* Green text for the terminal look */
+            padding: 20px 0; /* Padding for spacing */
+            text-align: center; /* Center align text */
+            font-family: 'Press Start 2P', monospace; /* Monospace font */
+            position: fixed; /* Fixed position to keep it on top */
+            top: 0; /* Position it at the top of the page */
+            z-index: 1000; /* Ensure it stays above other elements */
+        }
+
+        .cursor {
+            background-color: #0f0; /* Green background for the cursor */
+            width: 10px; /* Width of the cursor */
+            height: 20px; /* Height of the cursor */
+            display: inline-block; /* Make it inline with the text */
+            animation: blink 1s infinite; /* Blinking animation */
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>> Odell Code School <span class="cursor"></span></h1>
+</header>
+<div class="hero">
+    <h2>Welcome to CodeQuest</h2>
+    <p>Get ready to join our brave explorer, Indiana Codes, on a mission to save civilization by building amazing
+        websites.</p>
+</div>
+</body>
+</html>
+

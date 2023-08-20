@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" id="whip">
+    <!-- Handle -->
+    <rect x="10" y="75" width="100" height="50" fill="#8B4513" />
+    <!-- Whip's tail -->
+    <path id="whip-tail" d="M110 100 C110 100 110 100 110 100 S110 100 110 100" stroke="#8B4513" fill="none" stroke-width="8"/>
+    <!-- Whip's tip -->
+    <circle cx="110" cy="100" r="5" fill="#8B4513" id="whip-tip"/>
+</svg>
